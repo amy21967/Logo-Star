@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GenX Leadership Academy — Logo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;700;800&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ground:#160E14; --aura:#7A2E2E;
+    --c-deep:#4E2030; --c-mid:#9A3A44; --c-warm:#D9663C; --c-amber:#E8923A; --c-gold:#FBD06B; --c-core:#FFE9B8;
+    --porcelain:#F4EFE8; --mist:#B6A6A4; --line:rgba(182,166,164,.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{min-height:100vh;background:var(--ground);color:var(--porcelain);
+    font-family:"Schibsted Grotesk",system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:54px;padding:64px 24px;transition:background .5s}
+
+  .hero{position:relative;text-align:center}
+  .hero::before{content:"";position:absolute;inset:-130px;z-index:0;
+    background:radial-gradient(42% 42% at 50% 44%,color-mix(in srgb,var(--c-warm) 30%,transparent),transparent 72%),
+               radial-gradient(60% 60% at 50% 50%,color-mix(in srgb,var(--aura) 22%,transparent),transparent 78%)}
+  .wordmark{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center}
+  .line{display:inline-flex;align-items:center;gap:.03em;font-size:clamp(44px,7.4vw,66px);font-weight:800;letter-spacing:-.03em;line-height:1}
+  /* the star, sized and seated like the X glyph */
+  .hstar{width:1.42em;height:1.42em;flex:none;transform:translateY(-.05em);margin-left:.02em;
+    filter:drop-shadow(0 12px 26px color-mix(in srgb,var(--c-warm) 34%,transparent))}
+  .sub{font-family:"Instrument Serif",serif;font-style:italic;font-size:clamp(22px,3.6vw,30px);color:var(--mist);margin-top:8px;letter-spacing:.01em}
+  .tag{position:relative;z-index:1;margin-top:24px;font-family:"Space Grotesk";font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mist)}
+
+  /* context variants */
+  .variants{display:flex;gap:18px;flex-wrap:wrap;justify-content:center}
+  .chip{border:1px solid var(--line);border-radius:16px;padding:24px 30px;display:flex;flex-direction:column;align-items:center;gap:12px;min-width:200px}
+  .chip.light{background:var(--porcelain);border-color:transparent}
+  .chip .cline{display:inline-flex;align-items:center;gap:.03em;font-weight:800;font-size:26px;letter-spacing:-.03em;line-height:1}
+  .chip .mstar{width:1.4em;height:1.4em;transform:translateY(-.05em)}
+  .chip .cs{font-family:"Instrument Serif",serif;font-style:italic;font-size:15px;color:var(--mist);margin-top:3px}
+  .chip.light .cline{color:#241419}.chip.light .cs{color:#6a5a55}
+  .chip .lab{font-family:"Space Grotesk";font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mist)}
+  .chip.light .lab{color:#8a7a75}
+  .chip.icon .mstar{width:66px;height:66px;transform:none}
+  .chip.oneline .cline{font-size:23px}
+  .chip.oneline{flex-direction:row;gap:14px}
+
+  /* colour switch */
+  .moods{display:flex;gap:9px;align-items:center}
+  .moods span{font-family:"Space Grotesk";font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mist);margin-right:4px}
+  .mood{width:24px;height:24px;border-radius:50%;cursor:pointer;border:1px solid rgba(255,255,255,.18);transition:transform .2s;outline:2px solid transparent;outline-offset:2px}
+  .mood:hover{transform:scale(1.12)}
+  .mood[aria-pressed="true"]{outline-color:var(--c-amber)}
+
+  /* animation — scoped to the hero star only */
+  .star-mount .blade{transform-box:view-box;transform-origin:120px 120px}
+  .hstar .sw{animation:bloom .65s 0s cubic-bezier(.2,.9,.25,1.05) both}
+  .hstar .nw{animation:bloom .65s .12s cubic-bezier(.2,.9,.25,1.05) both}
+  .hstar .se{animation:bloom .65s .24s cubic-bezier(.2,.9,.25,1.05) both}
+  .hstar .ne{animation:bloom .70s .36s cubic-bezier(.2,.9,.25,1.05) both}
+  .hstar .coreGroup{transform-box:view-box;transform-origin:120px 120px;animation:pop .55s .62s cubic-bezier(.2,1.5,.3,1) both}
+  .hstar .coreGlow{transform-box:view-box;transform-origin:120px 120px;animation:breathe 3.4s 1.3s ease-in-out infinite}
+  @keyframes bloom{from{opacity:0;transform:scale(.18) rotate(-20deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+  @keyframes pop{from{opacity:0;transform:scale(.2)}to{opacity:1;transform:scale(1)}}
+  @keyframes breathe{0%,100%{opacity:.42;transform:scale(1)}50%{opacity:.72;transform:scale(1.12)}}
+  .gen,.sub,.tag{animation:rise .7s both}
+  .gen{animation-delay:0s}.sub{animation-delay:.7s}.tag{animation-delay:.85s}
+  @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;opacity:1!important;transform:none!important}}
+</style>
+</head>
+<body>
+
+  <!-- gradients (shared) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <linearGradient id="gNE" x1="120" y1="120" x2="193.5" y2="46.5" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="var(--c-warm)"/><stop offset=".6" stop-color="var(--c-amber)"/><stop offset="1" stop-color="var(--c-gold)"/></linearGradient>
+    <linearGradient id="gSE" x1="120" y1="120" x2="176.6" y2="176.6" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="var(--c-mid)"/><stop offset="1" stop-color="var(--c-warm)"/></linearGradient>
+    <linearGradient id="gNW" x1="120" y1="120" x2="63.4" y2="63.4" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="var(--c-mid)"/><stop offset="1" stop-color="var(--c-warm)"/></linearGradient>
+    <linearGradient id="gSW" x1="120" y1="120" x2="64.8" y2="175.2" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="var(--c-mid)"/><stop offset="1" stop-color="var(--c-deep)"/></linearGradient>
+    <radialGradient id="gCore" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="var(--c-core)"/><stop offset="1" stop-color="var(--c-gold)"/></radialGradient>
+    <filter id="soft" x="-90%" y="-90%" width="280%" height="280%"><feGaussianBlur stdDeviation="5"/></filter>
+  </defs></svg>
+
+  <!-- PRIMARY: GEN + star(as X) -->
+  <div class="hero">
+    <div class="wordmark">
+      <div class="line"><span class="gen">GEN</span><svg class="hstar star-mount" viewBox="0 0 240 240" aria-label="X"></svg></div>
+      <div class="sub">Leadership Academy</div>
+    </div>
+    <div class="tag">Turning uncertainty into breakthrough</div>
+  </div>
+
+  <!-- variants -->
+  <div class="variants">
+    <div class="chip light">
+      <div class="cline">GEN<svg class="mstar star-mount" viewBox="0 0 240 240" aria-hidden="true"></svg></div>
+      <div class="cs">Leadership Academy</div>
+      <div class="lab">On light</div>
+    </div>
+    <div class="chip oneline">
+      <div class="cline">GEN<svg class="mstar star-mount" viewBox="0 0 240 240" aria-hidden="true"></svg></div>
+      <div class="cs" style="margin:0">Leadership Academy</div>
+    </div>
+    <div class="chip icon">
+      <svg class="mstar star-mount" viewBox="0 0 240 240" aria-hidden="true"></svg>
+      <div class="lab">Mark · favicon</div>
+    </div>
+  </div>
+
+  <!-- colour -->
+  <div class="moods" id="moods">
+    <span>Colour</span>
+    <button class="mood" data-mood="ember" aria-pressed="true" title="Ember Dawn" style="background:linear-gradient(135deg,#9A3A44,#FBD06B)"></button>
+    <button class="mood" data-mood="oxblood" aria-pressed="false" title="Oxblood & Brass" style="background:linear-gradient(135deg,#7E2B2B,#EAC270)"></button>
+    <button class="mood" data-mood="magenta" aria-pressed="false" title="Magenta Dusk" style="background:linear-gradient(135deg,#8E2A6B,#F4B65E)"></button>
+    <button class="mood" data-mood="emerald" aria-pressed="false" title="Emerald & Gold" style="background:linear-gradient(135deg,#1F6B53,#E7C766)"></button>
+  </div>
+
+<script>
+  const STAR = `
+    <path class="blade sw" d="M105.15 113.64 L126.36 134.85 L64.85 175.15 Z" fill="url(#gSW)"/>
+    <path class="blade nw" d="M126.36 105.15 L105.15 126.36 L63.43 63.43 Z" fill="url(#gNW)"/>
+    <path class="blade se" d="M113.64 134.85 L134.85 113.64 L176.57 176.57 Z" fill="url(#gSE)"/>
+    <path class="blade ne" d="M134.85 126.36 L113.64 105.15 L193.54 46.46 Z" fill="url(#gNE)"/>
+    <g class="coreGroup">
+      <circle class="coreGlow" cx="120" cy="120" r="17" fill="var(--c-warm)" filter="url(#soft)"/>
+      <path d="M120 105 L135 120 L120 135 L105 120 Z" fill="url(#gCore)"/>
+    </g>`;
+  document.querySelectorAll('.star-mount').forEach(s=>s.innerHTML=STAR);
+
+  const THEMES={
+    ember:{'--ground':'#160E14','--aura':'#7A2E2E','--c-deep':'#4E2030','--c-mid':'#9A3A44','--c-warm':'#D9663C','--c-amber':'#E8923A','--c-gold':'#FBD06B','--c-core':'#FFE9B8','--mist':'#B6A6A4'},
+    oxblood:{'--ground':'#170D0D','--aura':'#6E2A22','--c-deep':'#4A1F22','--c-mid':'#8E3A2E','--c-warm':'#B5562B','--c-amber':'#C8892F','--c-gold':'#EAC270','--c-core':'#F7E6BE','--mist':'#B7A29C'},
+    magenta:{'--ground':'#160E1A','--aura':'#7A2A5E','--c-deep':'#4A1A50','--c-mid':'#9E3070','--c-warm':'#D44A6E','--c-amber':'#E87B4E','--c-gold':'#F4B65E','--c-core':'#FCE3C2','--mist':'#B6A2B4'},
+    emerald:{'--ground':'#0C1612','--aura':'#1C6B53','--c-deep':'#114436','--c-mid':'#23795C','--c-warm':'#4E9E6E','--c-amber':'#B89A2E','--c-gold':'#E7C766','--c-core':'#F3EBC2','--mist':'#9FB3A6'}
+  };
+  const root=document.documentElement.style;
+  document.getElementById('moods').addEventListener('click',e=>{
+    const b=e.target.closest('.mood'); if(!b)return;
+    Object.entries(THEMES[b.dataset.mood]).forEach(([k,v])=>root.setProperty(k,v));
+    document.querySelectorAll('.mood').forEach(m=>m.setAttribute('aria-pressed',m===b));
+  });
+</script>
+</body>
+</html>
